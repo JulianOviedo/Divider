@@ -5,4 +5,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #FCA91C;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
