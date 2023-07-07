@@ -1,12 +1,20 @@
+import { Route } from "wouter"
+import Home from "./components/Home"
+import Index from "./components/Index"
+import AddPeople from "./components/AddPeople"
+import addBills from "./components/AddBills"
+
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold  text-center p-4">DIVIDER</h1>
-      <h3 className="text-center mt-8">Lets get started !</h3>
-      <div className="absolute top-2/4 w-full flex justify-center">
-      <button className="rounded-3xl bg-white text-orange-400 py-4 px-20 text-sm">New Join</button>
-      </div>
+      <Route path="/" component={Index} />
+      <Route path="/home" component={Home}/>
+      <Route path="/add-people" component={AddPeople} />
+      <Route path="/add-bills" component={addBills} />
+
+
+      <footer className="text-xs text-center fixed bottom-0 w-full p-4">Inspirado en la garza divisora por 5</footer>
     </>
   )
 }
