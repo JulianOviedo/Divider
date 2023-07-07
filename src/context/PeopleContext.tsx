@@ -1,10 +1,5 @@
 import { createContext } from "react";
-
-interface GroupMembers {
-    id: string
-    name: string;
-    bill: number
-  }
+import { GroupMembers } from "../types";
 
 interface PeopleContextProps {
   people: GroupMembers[];

@@ -1,11 +1,8 @@
 import { useContext, useRef, useState } from "react";
 import { PeopleContext } from "../context/PeopleContext";
+import { GroupMembers } from "../types";
 
-interface GroupMembers {
-    name: string;
-    bill: number;
-    id: string;
-}
+
 
 export default function addBills() {
     const { people, setPeople } = useContext(PeopleContext);

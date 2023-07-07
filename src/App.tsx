@@ -5,12 +5,7 @@ import AddPeople from "./components/AddPeople";
 import addBills from "./components/AddBills";
 import { useState } from "react";
 import { PeopleContext } from "./context/PeopleContext";
-
-interface GroupMembers {
-  name: string;
-  bill: number;
-  id: string
-}
+import { GroupMembers } from "./types";
 
 function App() {
   const [people, setPeople] = useState<GroupMembers[]>([]);
