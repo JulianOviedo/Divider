@@ -1,16 +1,15 @@
-import { useRef, useState } from "react"
+import { useContext, useRef } from "react"
 import Member from "./Member"
 import { useLocation } from "wouter"
+import { PeopleContext } from "../context/PeopleContext"
+import { v4 as uuidv4 } from 'uuid';
 
 
 
-interface GroupMembers {
-    name: string
-}
 
 export default function AddPeople() {
     const inputRef = useRef<HTMLInputElement>(null)
-    const [people, setPeople] = useState<GroupMembers[]>([])
+    const { people, setPeople } = useContext(PeopleContext)
     const [, setLocation] = useLocation();
 
     const groupName = localStorage.getItem('groupName')
@@ -19,13 +18,14 @@ export default function AddPeople() {
 
     const addPeople = () => {
         if (inputRef.current?.value) {
-            setPeople([...people, { name: inputRef.current.value }])
+            setPeople([...people, { name: inputRef.current.value, bill: 0.00, id: uuidv4() }])
             inputRef.current.value = ''
         }
+        console.log(people)
     }
 
-    const removePeople = (id: number) => {
-        setPeople(people.filter((_, index) => index !== id))
+    const removePeople = (id: string) => {
+        setPeople(people.filter((person) => person.id !== id))
     }
 
 
@@ -42,8 +42,8 @@ export default function AddPeople() {
                     <input ref={inputRef} className='rounded-lg p-2 w-72 text-black text-center' type="text" placeholder='Julian Oviedo' />
                     <button onClick={addPeople} className="ml-2 py-2 px-4 border rounded-xl">✓</button>
                 </div>
-                {people?.map((person, index) => (
-                    <Member id={index} name={person.name} removePeople={removePeople} />
+                {people?.map((person) => (
+                    <Member key={person.id} id={person.id} name={person.name} removePeople={removePeople} />
                 ))}
             </main>
         </>
