@@ -21,7 +21,7 @@ export default function Home() {
         <>
             <header className='flex justify-between p-4 items-center'>
                 <a onClick={() => setLocation('/')} className='text-3xl'>&lt;</a>
-                <a onClick={handleClick}>
+                <a onClick={handleClick} className='cursor-pointer'>
                     Siguiente
                 </a>
             </header>

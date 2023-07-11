@@ -21,7 +21,6 @@ export default function AddPeople() {
             setPeople([...people, { name: inputRef.current.value, bill: 0.00, id: uuidv4() }])
             inputRef.current.value = ''
         }
-        console.log(people)
     }
 
     const removePeople = (id: string) => {
